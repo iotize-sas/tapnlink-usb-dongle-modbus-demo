@@ -1,0 +1,9 @@
+*.html
+*.h
+*.cloud
+*.izsc
+*.xml
+HTML_TEST
+tmp
+GPUCache
+app

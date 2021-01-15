@@ -1,0 +1,28 @@
+<ion-content *ngIf="dataManager">
+  <app-navigation-progress-bar></app-navigation-progress-bar>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-item lines="full" class="card-header" color="secondary">
+            <ion-icon name="sunny" slot="start"></ion-icon>
+            <ion-label>Screen brightness</ion-label>
+          </ion-item>
+
+          <ion-card-content>
+            <tap-variable-range
+              [editable]="true"
+              [variable]="variables['screenBrightness']"
+              snaps="true"
+              min="0"
+              max="100"
+              step="1"
+              pin="true"
+            ></tap-variable-range>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,204 @@
+{
+    "config": {
+        "version": "2.1.0",
+        "application": {
+            "name": "Modbus Slave Demo",
+            "universalLink": "https://www.iotize.com",
+            "uri": "$4/com.mycompany.appgagi"
+        },
+        "data": {
+            "bundles": [
+                {
+                    "name": "Memory",
+                    "id": 1,
+                    "variables": [
+                        {
+                            "domain": "TARGET",
+                            "address": "0x0",
+                            "id": 2,
+                            "length": 1,
+                            "dataType": "UINT16",
+                            "meta": {
+                                "name": "freeMemoryMB",
+                                "unit": "MB"
+                            }
+                        },
+                        {
+                            "domain": "TARGET",
+                            "address": "0x0",
+                            "id": 4,
+                            "length": 1,
+                            "dataType": "UINT16",
+                            "meta": {
+                                "name": "totalMemoryMB",
+                                "unit": "MB"
+                            }
+                        },
+                        {
+                            "domain": "TARGET",
+                            "address": "0x0",
+                            "id": 9,
+                            "length": 1,
+                            "dataType": "UINT16",
+                            "meta": {
+                                "name": "freeMemoryPercentage"
+                            }
+                        }
+                    ],
+                    "acls": {
+                        "anonymous": {
+                            "read": true,
+                            "write": true
+                        }
+                    },
+                    "dataLog": {
+                        "period": 0
+                    }
+                },
+                {
+                    "name": "CPUs",
+                    "id": 2,
+                    "variables": [
+                        {
+                            "domain": "TARGET",
+                            "address": "0x0",
+                            "id": 6,
+                            "length": 1,
+                            "dataType": "UINT16",
+                            "meta": {
+                                "name": "cpuCount"
+                            }
+                        },
+                        {
+                            "domain": "TARGET",
+                            "address": "0x0",
+                            "id": 11,
+                            "length": 1,
+                            "dataType": "UINT16",
+                            "meta": {
+                                "name": "cpuUsagePercentage"
+                            }
+                        }
+                    ],
+                    "acls": {
+                        "anonymous": {
+                            "read": true,
+                            "write": true
+                        }
+                    },
+                    "dataLog": {
+                        "period": 0
+                    }
+                },
+                {
+                    "name": "Control",
+                    "id": 3,
+                    "variables": [
+                        {
+                            "domain": "TARGET",
+                            "address": "0x0",
+                            "id": 13,
+                            "length": 1,
+                            "dataType": "UINT16",
+                            "meta": {
+                                "name": "screenBrightness",
+                                "unit": "%"
+                            }
+                        }
+                    ],
+                    "acls": {
+                        "anonymous": {
+                            "read": true,
+                            "write": true
+                        }
+                    },
+                    "dataLog": {
+                        "period": 0
+                    },
+                    "features": [
+                        "SERIAL_ACCESS",
+                        "MODBUS_DIRECT_ACCESS"
+                    ]
+                }
+            ],
+            "profiles": [
+                {
+                    "username": "admin",
+                    "lifeTime": 300,
+                    "key": "0xF19305E204DE9A184F165DF4E94CDD03639A531E0EDED1662324F5EC9BACD215CE90DEF2"
+                },
+                {
+                    "username": "supervisor",
+                    "lifeTime": 300,
+                    "key": "0x4417EC1A647AE1FBEA8DCFB42103694BBFB6A89EE10300C34F1AC7C7272890751DB80CB7"
+                }
+            ]
+        },
+        "cloud": {
+            "dataLog": {
+                "mqttPublishTopic": "",
+                "mqttSubscribeTopic": "",
+                "uploadPeriod": 0
+            }
+        },
+        "wireless": {
+            "options": {
+                "inactivityTimeout": 30
+            },
+            "protocols": {
+                "wifi": {
+                    "mode": "PEER_TO_PEER",
+                    "ssid": "sfr-49e5",
+                    "key": "",
+                    "keyVisibility": "HIDDEN",
+                    "ssidVisibility": "VISIBLE"
+                },
+                "mqtt": {},
+                "ble": {
+                    "pairing": false
+                },
+                "lora": {},
+                "nfc": {
+                    "autoLogProfileId": 0,
+                    "connectionPriority": "NFC_NON_PRIORITY",
+                    "pairingMode": "NO"
+                }
+            }
+        },
+        "tap": {
+            "security": {
+                "scramActivated": true,
+                "hashPassword": true,
+                "disableHardwareFactoryReset": false,
+                "disableLoginWithUID": false,
+                "disableResourceFactoryReset": false
+            },
+            "powerOptimization": "NO",
+            "scram": {
+                "hashIteration": 5000
+            },
+            "certificate": {}
+        },
+        "target": {
+            "type": "MCU",
+            "protocol": {
+                "type": "MODBUS",
+                "config": {
+                    "modbus": {
+                        "slave": 1,
+                        "offsetFirstRegister": false
+                    },
+                    "serial": {
+                        "baudRate": 9600,
+                        "bitParity": "NONE",
+                        "dataBits": "_8",
+                        "handshakeDelimiter": "NONE",
+                        "stopBits": "ONE",
+                        "timeout": 10
+                    }
+                }
+            },
+            "firmwareVersion": "1.0.0"
+        }
+    }
+}

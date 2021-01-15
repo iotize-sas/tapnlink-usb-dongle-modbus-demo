@@ -1,0 +1,84 @@
+<ion-content *ngIf="dataManager">
+  <app-navigation-progress-bar></app-navigation-progress-bar>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-item lines="full" class="card-header" color="secondary">
+            <ion-icon name="information-circle" slot="start"></ion-icon>
+            <ion-label>Memory free</ion-label>
+          </ion-item>
+
+          <ion-card-content>
+            <ion-item lines="none" style="display: flex;">
+              <div style="margin: auto;">
+                <monitoring-variable-value
+                  [lines]="'none'"
+                  [variable]="variables['freeMemoryMB']"
+                  [inputOptions]=""
+                  [valueStyle]="{'font-size': '1.5em'}"
+                  slot="end"
+                >
+                </monitoring-variable-value>
+              </div>
+              <span class="variable-unit" slot="end">MB</span>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card>
+          <ion-item lines="full" class="card-header" color="secondary">
+            <ion-icon name="information-circle" slot="start"></ion-icon>
+            <ion-label>Total memory</ion-label>
+          </ion-item>
+
+          <ion-card-content>
+            <ion-item lines="none" style="display: flex;">
+              <div style="margin: auto;">
+                <monitoring-variable-value
+                  [lines]="'none'"
+                  [variable]="variables['totalMemoryMB']"
+                  [inputOptions]=""
+                  [valueStyle]="{'font-size': '1.5em'}"
+                  slot="end"
+                >
+                </monitoring-variable-value>
+              </div>
+              <span class="variable-unit" slot="end">MB</span>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-item lines="full" class="card-header" color="secondary">
+            <ion-icon name="analytics" slot="start"></ion-icon>
+            <ion-label>Free memory</ion-label>
+          </ion-item>
+
+          <ion-card-content>
+            <tap-variable-gauge
+              [variable]="variables['freeMemoryPercentage']"
+              [max]="100"
+              [min]="0"
+              units=""
+              alias="Free memory"
+              [legend]="false"
+            >
+            </tap-variable-gauge>
+          </ion-card-content>
+
+          <ion-card-content>
+            Hard drive free memory in percentage
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

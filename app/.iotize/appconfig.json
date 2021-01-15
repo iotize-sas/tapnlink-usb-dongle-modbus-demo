@@ -1,0 +1,1251 @@
+{
+    "version": {
+        "generator": "3.0.0-alpha.1"
+    },
+    "app": {
+        "id": "com.mycompany.appgagi",
+        "version": "0.0.1",
+        "domain": "https://www.iotize.com",
+        "name": "Modbus Slave Demo",
+        "platforms": {
+            "android": {
+                "enabled": true
+            },
+            "browser": {
+                "enabled": true,
+                "PWA": true
+            },
+            "ios": {
+                "enabled": true
+            }
+        },
+        "menu": [
+            {
+                "title": "Device info",
+                "icon": "information-circle",
+                "url": "/device/info"
+            },
+            {
+                "title": "About",
+                "icon": "help",
+                "url": "/about"
+            },
+            {
+                "title": "Target settings",
+                "icon": "barcode",
+                "url": "/device/protocol-configuration"
+            },
+            {
+                "title": "Connectivity settings",
+                "icon": "cog",
+                "url": "/device/connectivity"
+            },
+            {
+                "title": "Monitoring",
+                "icon": "analytics",
+                "url": "/device/monitoring"
+            }
+        ],
+        "pages": {
+            "TapDevicePage": {
+                "enabled": true,
+                "children": {
+                    "TapInfoPage": {
+                        "type": "TapInfoPage",
+                        "enabled": true,
+                        "pageTitle": "Device info",
+                        "path": "info",
+                        "projectPath": "pages/tap-device-page/tap-info-page",
+                        "items": [
+                            {
+                                "key": "serialNumber"
+                            },
+                            {
+                                "key": "tapFirmwareVersion"
+                            },
+                            {
+                                "key": "configVersion"
+                            },
+                            {
+                                "key": "appName"
+                            }
+                        ],
+                        "GUI_infosn": [
+                            {
+                                "enabled": "true"
+                            },
+                            ""
+                        ],
+                        "GUI_infofwver": [
+                            {
+                                "enabled": "true"
+                            },
+                            ""
+                        ],
+                        "GUI_infocfgver": [
+                            {
+                                "enabled": "true"
+                            },
+                            ""
+                        ],
+                        "GUI_infoappname": [
+                            {
+                                "enabled": "true"
+                            },
+                            ""
+                        ]
+                    },
+                    "ProtocolConfigurationPage": {
+                        "enabled": true,
+                        "type": "ProtocolConfigurationPage",
+                        "path": "protocol-configuration",
+                        "pageTitle": "Target settings",
+                        "projectPath": "pages/tap-device-page/protocol-configuration"
+                    },
+                    "TapConfigPage": {
+                        "enabled": false,
+                        "type": "TapConfigPage",
+                        "path": "settings",
+                        "pageTitle": "Supervision",
+                        "projectPath": "pages/tap-device-page/tap-settings-page",
+                        "authorizedProfiles": [
+                            "admin",
+                            "supervisor"
+                        ],
+                        "content": {
+                            "type": "GridLayout",
+                            "cols": 1,
+                            "elements": [
+                                {
+                                    "type": "CardLayout",
+                                    "title": "General",
+                                    "icon": "help",
+                                    "content": [
+                                        {
+                                            "type": "TapConfigList",
+                                            "variableName": "interfaceTapConfigItems",
+                                            "items": [
+                                                {
+                                                    "key": "appName",
+                                                    "editable": true
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Text",
+                                    "content": "<h3><ion-icon name=\"profile\"></ion-icon>Users</h3>"
+                                },
+                                {
+                                    "icon": "person",
+                                    "type": "CardLayout",
+                                    "title": "#65535 admin",
+                                    "content": [
+                                        {
+                                            "type": "TapConfigList",
+                                            "variableName": "profile_adminConfigItem",
+                                            "items": [
+                                                {
+                                                    "key": "ProfileLifeTime",
+                                                    "editable": true,
+                                                    "params": [
+                                                        "65535"
+                                                    ]
+                                                },
+                                                {
+                                                    "key": "profilePassword",
+                                                    "editable": true,
+                                                    "params": [
+                                                        "65535"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "icon": "person",
+                                    "type": "CardLayout",
+                                    "title": "#65534 supervisor",
+                                    "content": [
+                                        {
+                                            "type": "TapConfigList",
+                                            "variableName": "profile_supervisorConfigItem",
+                                            "items": [
+                                                {
+                                                    "key": "ProfileLifeTime",
+                                                    "editable": true,
+                                                    "params": [
+                                                        "65534"
+                                                    ]
+                                                },
+                                                {
+                                                    "key": "profilePassword",
+                                                    "editable": true,
+                                                    "params": [
+                                                        "65534"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Text",
+                                    "content": "<h3><ion-icon name=\"analytics\"></ion-icon>Data</h3>"
+                                },
+                                {
+                                    "type": "CardLayout",
+                                    "title": "#1 Memory",
+                                    "content": [
+                                        {
+                                            "type": "TapConfigList",
+                                            "variableName": "bundle_MemoryConfigItem",
+                                            "items": [
+                                                {
+                                                    "key": "BundleDatalogPeriod",
+                                                    "editable": true,
+                                                    "params": [
+                                                        "1"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "CardLayout",
+                                    "title": "#2 CPUs",
+                                    "content": [
+                                        {
+                                            "type": "TapConfigList",
+                                            "variableName": "bundle_CPUsConfigItem",
+                                            "items": [
+                                                {
+                                                    "key": "BundleDatalogPeriod",
+                                                    "editable": true,
+                                                    "params": [
+                                                        "2"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "CardLayout",
+                                    "title": "#3 Control",
+                                    "content": [
+                                        {
+                                            "type": "TapConfigList",
+                                            "variableName": "bundle_ControlConfigItem",
+                                            "items": [
+                                                {
+                                                    "key": "BundleDatalogPeriod",
+                                                    "editable": true,
+                                                    "params": [
+                                                        "3"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "TapConnectivitySettingsPage": {
+                        "type": "TapConnectivitySettingsPage",
+                        "enabled": true,
+                        "path": "connectivity",
+                        "pageTitle": "Connectivity settings",
+                        "projectPath": "pages/tap-device-page/tap-connectivity-settings-page",
+                        "authorizedProfiles": [
+                            "admin",
+                            "supervisor"
+                        ]
+                    },
+                    "TapLoginPage": {
+                        "enabled": true,
+                        "children": {},
+                        "pageTitle": "Tap login",
+                        "path": "login",
+                        "projectPath": "pages/tap-device-page/tap-login-page",
+                        "type": "TapLoginPage"
+                    },
+                    "MonitoringPage": {
+                        "type": "MonitoringPage",
+                        "enabled": true,
+                        "pageTitle": "Monitoring",
+                        "projectPath": "pages/tap-device-page/monitoring-page",
+                        "path": "monitoring",
+                        "children": [
+                            {
+                                "type": "MonitoringDashboardPage",
+                                "pageTitle": "Public dashboard",
+                                "enabled": true,
+                                "path": "anonymous",
+                                "projectPath": "pages/tap-device-page/monitoring-page/anonymous-dashboard",
+                                "profileName": "anonymous",
+                                "moduleName": "AnonymousDashboardModule",
+                                "targetConnectRequired": true,
+                                "children": [
+                                    {
+                                        "type": "MonitoringDashboardPage",
+                                        "pageTitle": "Memory",
+                                        "enabled": true,
+                                        "path": "memory",
+                                        "projectPath": "pages/tap-device-page/monitoring-page/anonymous-dashboard/memory",
+                                        "profileName": "anonymous",
+                                        "moduleName": "AnonymousMemoryModule",
+                                        "targetConnectRequired": false,
+                                        "header": false,
+                                        "footer": false,
+                                        "variables": [
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 2,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "freeMemoryMB",
+                                                    "unit": "MB"
+                                                }
+                                            },
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 4,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "totalMemoryMB",
+                                                    "unit": "MB"
+                                                }
+                                            },
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 9,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "freeMemoryPercentage"
+                                                }
+                                            }
+                                        ],
+                                        "content": {
+                                            "type": "GridLayout",
+                                            "cols": 2,
+                                            "elements": [
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "information-circle"
+                                                    },
+                                                    "title": "Memory free",
+                                                    "content": [
+                                                        {
+                                                            "editable": false,
+                                                            "type": "VariableText",
+                                                            "unit": "MB",
+                                                            "variable": "freeMemoryMB",
+                                                            "valueFontSize": "1.5em",
+                                                            "valueFormatting": ""
+                                                        }
+                                                    ],
+                                                    "description": ""
+                                                },
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "information-circle"
+                                                    },
+                                                    "title": "Total memory",
+                                                    "content": [
+                                                        {
+                                                            "editable": false,
+                                                            "type": "VariableText",
+                                                            "unit": "MB",
+                                                            "variable": "totalMemoryMB",
+                                                            "valueFontSize": "1.5em",
+                                                            "valueFormatting": ""
+                                                        }
+                                                    ],
+                                                    "description": ""
+                                                },
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "analytics"
+                                                    },
+                                                    "title": "Free memory",
+                                                    "content": [
+                                                        {
+                                                            "editable": false,
+                                                            "type": "VariableGauge",
+                                                            "variable": "freeMemoryPercentage",
+                                                            "min": 0,
+                                                            "max": 100,
+                                                            "valueFormatting": "",
+                                                            "options": {
+                                                                "alias": "Free memory",
+                                                                "[legend]": false
+                                                            }
+                                                        }
+                                                    ],
+                                                    "description": "Hard drive free memory in percentage"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "MonitoringDashboardPage",
+                                        "pageTitle": "CPUs",
+                                        "enabled": true,
+                                        "path": "cpus",
+                                        "projectPath": "pages/tap-device-page/monitoring-page/anonymous-dashboard/cpus",
+                                        "profileName": "anonymous",
+                                        "moduleName": "AnonymousCPUsModule",
+                                        "targetConnectRequired": false,
+                                        "header": false,
+                                        "footer": false,
+                                        "variables": [
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 6,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "cpuCount"
+                                                }
+                                            },
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 11,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "cpuUsagePercentage"
+                                                }
+                                            }
+                                        ],
+                                        "content": {
+                                            "type": "GridLayout",
+                                            "cols": 2,
+                                            "elements": [
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "information-circle"
+                                                    },
+                                                    "title": "CPU count",
+                                                    "content": [
+                                                        {
+                                                            "editable": false,
+                                                            "type": "VariableText",
+                                                            "variable": "cpuCount",
+                                                            "valueFontSize": "1.2em",
+                                                            "valueFormatting": ""
+                                                        }
+                                                    ],
+                                                    "description": ""
+                                                },
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "analytics"
+                                                    },
+                                                    "title": "GPU usage over time",
+                                                    "content": [
+                                                        {
+                                                            "type": "VariableChart",
+                                                            "variable": "cpuUsagePercentage",
+                                                            "label": "cpu usage percentage",
+                                                            "valueFormatting": "",
+                                                            "options": {
+                                                                "xaxislabel": "cpu usage percentage",
+                                                                "[showLegend]": false
+                                                            }
+                                                        }
+                                                    ],
+                                                    "description": "CPU usage in percent over time"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "MonitoringDashboardPage",
+                                        "pageTitle": "Control",
+                                        "enabled": true,
+                                        "path": "control",
+                                        "projectPath": "pages/tap-device-page/monitoring-page/anonymous-dashboard/control",
+                                        "profileName": "anonymous",
+                                        "moduleName": "AnonymousControlModule",
+                                        "targetConnectRequired": false,
+                                        "header": false,
+                                        "footer": false,
+                                        "variables": [
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 13,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "screenBrightness",
+                                                    "unit": "%"
+                                                }
+                                            }
+                                        ],
+                                        "content": {
+                                            "type": "GridLayout",
+                                            "cols": 2,
+                                            "elements": [
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "sunny"
+                                                    },
+                                                    "title": "Screen brightness",
+                                                    "content": [
+                                                        {
+                                                            "editable": true,
+                                                            "type": "VariableRange",
+                                                            "variable": "screenBrightness",
+                                                            "options": {
+                                                                "snaps": true,
+                                                                "min": 0,
+                                                                "max": 100,
+                                                                "step": 1,
+                                                                "pin": true
+                                                            }
+                                                        }
+                                                    ],
+                                                    "description": ""
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "content": {
+                                    "type": "TabLayout",
+                                    "tabs": [
+                                        {
+                                            "label": "Memory",
+                                            "path": "memory"
+                                        },
+                                        {
+                                            "label": "CPUs",
+                                            "path": "cpus"
+                                        },
+                                        {
+                                            "label": "Control",
+                                            "path": "control"
+                                        }
+                                    ]
+                                },
+                                "defaultPage": "memory"
+                            },
+                            {
+                                "type": "MonitoringDashboardPage",
+                                "pageTitle": "Admin dashboard",
+                                "enabled": true,
+                                "path": "admin",
+                                "projectPath": "pages/tap-device-page/monitoring-page/admin-dashboard",
+                                "profileName": "admin",
+                                "moduleName": "AdminDashboardModule",
+                                "targetConnectRequired": true,
+                                "children": [
+                                    {
+                                        "type": "MonitoringDashboardPage",
+                                        "pageTitle": "Memory",
+                                        "enabled": true,
+                                        "path": "memory",
+                                        "projectPath": "pages/tap-device-page/monitoring-page/admin-dashboard/memory",
+                                        "profileName": "admin",
+                                        "moduleName": "AdminMemoryModule",
+                                        "targetConnectRequired": false,
+                                        "header": false,
+                                        "footer": false,
+                                        "variables": [
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 2,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "freeMemoryMB",
+                                                    "unit": "MB"
+                                                }
+                                            },
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 4,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "totalMemoryMB",
+                                                    "unit": "MB"
+                                                }
+                                            },
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 9,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "freeMemoryPercentage"
+                                                }
+                                            }
+                                        ],
+                                        "content": {
+                                            "type": "GridLayout",
+                                            "cols": 2,
+                                            "elements": [
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "information-circle"
+                                                    },
+                                                    "title": "Memory free",
+                                                    "content": [
+                                                        {
+                                                            "editable": false,
+                                                            "type": "VariableText",
+                                                            "unit": "MB",
+                                                            "variable": "freeMemoryMB",
+                                                            "valueFontSize": "1.5em",
+                                                            "valueFormatting": ""
+                                                        }
+                                                    ],
+                                                    "description": ""
+                                                },
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "information-circle"
+                                                    },
+                                                    "title": "Total memory",
+                                                    "content": [
+                                                        {
+                                                            "editable": false,
+                                                            "type": "VariableText",
+                                                            "unit": "MB",
+                                                            "variable": "totalMemoryMB",
+                                                            "valueFontSize": "1.5em",
+                                                            "valueFormatting": ""
+                                                        }
+                                                    ],
+                                                    "description": ""
+                                                },
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "analytics"
+                                                    },
+                                                    "title": "Free memory",
+                                                    "content": [
+                                                        {
+                                                            "editable": false,
+                                                            "type": "VariableGauge",
+                                                            "variable": "freeMemoryPercentage",
+                                                            "min": 0,
+                                                            "max": 100,
+                                                            "valueFormatting": "",
+                                                            "options": {
+                                                                "alias": "Free memory",
+                                                                "[legend]": false
+                                                            }
+                                                        }
+                                                    ],
+                                                    "description": "Hard drive free memory in percentage"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "MonitoringDashboardPage",
+                                        "pageTitle": "CPUs",
+                                        "enabled": true,
+                                        "path": "cpus",
+                                        "projectPath": "pages/tap-device-page/monitoring-page/admin-dashboard/cpus",
+                                        "profileName": "admin",
+                                        "moduleName": "AdminCPUsModule",
+                                        "targetConnectRequired": false,
+                                        "header": false,
+                                        "footer": false,
+                                        "variables": [
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 6,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "cpuCount"
+                                                }
+                                            },
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 11,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "cpuUsagePercentage"
+                                                }
+                                            }
+                                        ],
+                                        "content": {
+                                            "type": "GridLayout",
+                                            "cols": 2,
+                                            "elements": [
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "information-circle"
+                                                    },
+                                                    "title": "CPU count",
+                                                    "content": [
+                                                        {
+                                                            "editable": false,
+                                                            "type": "VariableText",
+                                                            "variable": "cpuCount",
+                                                            "valueFontSize": "1.2em",
+                                                            "valueFormatting": ""
+                                                        }
+                                                    ],
+                                                    "description": ""
+                                                },
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "analytics"
+                                                    },
+                                                    "title": "GPU usage over time",
+                                                    "content": [
+                                                        {
+                                                            "type": "VariableChart",
+                                                            "variable": "cpuUsagePercentage",
+                                                            "label": "cpu usage percentage",
+                                                            "valueFormatting": "",
+                                                            "options": {
+                                                                "xaxislabel": "cpu usage percentage",
+                                                                "[showLegend]": false
+                                                            }
+                                                        }
+                                                    ],
+                                                    "description": "CPU usage in percent over time"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "MonitoringDashboardPage",
+                                        "pageTitle": "Control",
+                                        "enabled": true,
+                                        "path": "control",
+                                        "projectPath": "pages/tap-device-page/monitoring-page/admin-dashboard/control",
+                                        "profileName": "admin",
+                                        "moduleName": "AdminControlModule",
+                                        "targetConnectRequired": false,
+                                        "header": false,
+                                        "footer": false,
+                                        "variables": [
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 13,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "screenBrightness",
+                                                    "unit": "%"
+                                                }
+                                            }
+                                        ],
+                                        "content": {
+                                            "type": "GridLayout",
+                                            "cols": 2,
+                                            "elements": [
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "sunny"
+                                                    },
+                                                    "title": "Screen brightness",
+                                                    "content": [
+                                                        {
+                                                            "editable": true,
+                                                            "type": "VariableRange",
+                                                            "variable": "screenBrightness",
+                                                            "options": {
+                                                                "snaps": true,
+                                                                "min": 0,
+                                                                "max": 100,
+                                                                "step": 1,
+                                                                "pin": true
+                                                            }
+                                                        }
+                                                    ],
+                                                    "description": ""
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "content": {
+                                    "type": "TabLayout",
+                                    "tabs": [
+                                        {
+                                            "label": "Memory",
+                                            "path": "memory"
+                                        },
+                                        {
+                                            "label": "CPUs",
+                                            "path": "cpus"
+                                        },
+                                        {
+                                            "label": "Control",
+                                            "path": "control"
+                                        }
+                                    ]
+                                },
+                                "defaultPage": "memory"
+                            },
+                            {
+                                "type": "MonitoringDashboardPage",
+                                "pageTitle": "Supervisor dashboard",
+                                "enabled": true,
+                                "path": "supervisor",
+                                "projectPath": "pages/tap-device-page/monitoring-page/supervisor-dashboard",
+                                "profileName": "supervisor",
+                                "moduleName": "SupervisorDashboardModule",
+                                "targetConnectRequired": true,
+                                "children": [
+                                    {
+                                        "type": "MonitoringDashboardPage",
+                                        "pageTitle": "Memory",
+                                        "enabled": true,
+                                        "path": "memory",
+                                        "projectPath": "pages/tap-device-page/monitoring-page/supervisor-dashboard/memory",
+                                        "profileName": "supervisor",
+                                        "moduleName": "SupervisorMemoryModule",
+                                        "targetConnectRequired": false,
+                                        "header": false,
+                                        "footer": false,
+                                        "variables": [
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 2,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "freeMemoryMB",
+                                                    "unit": "MB"
+                                                }
+                                            },
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 4,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "totalMemoryMB",
+                                                    "unit": "MB"
+                                                }
+                                            },
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 9,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "freeMemoryPercentage"
+                                                }
+                                            }
+                                        ],
+                                        "content": {
+                                            "type": "GridLayout",
+                                            "cols": 2,
+                                            "elements": [
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "information-circle"
+                                                    },
+                                                    "title": "Memory free",
+                                                    "content": [
+                                                        {
+                                                            "editable": false,
+                                                            "type": "VariableText",
+                                                            "unit": "MB",
+                                                            "variable": "freeMemoryMB",
+                                                            "valueFontSize": "1.5em",
+                                                            "valueFormatting": ""
+                                                        }
+                                                    ],
+                                                    "description": ""
+                                                },
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "information-circle"
+                                                    },
+                                                    "title": "Total memory",
+                                                    "content": [
+                                                        {
+                                                            "editable": false,
+                                                            "type": "VariableText",
+                                                            "unit": "MB",
+                                                            "variable": "totalMemoryMB",
+                                                            "valueFontSize": "1.5em",
+                                                            "valueFormatting": ""
+                                                        }
+                                                    ],
+                                                    "description": ""
+                                                },
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "analytics"
+                                                    },
+                                                    "title": "Free memory",
+                                                    "content": [
+                                                        {
+                                                            "editable": false,
+                                                            "type": "VariableGauge",
+                                                            "variable": "freeMemoryPercentage",
+                                                            "min": 0,
+                                                            "max": 100,
+                                                            "valueFormatting": "",
+                                                            "options": {
+                                                                "alias": "Free memory",
+                                                                "[legend]": false
+                                                            }
+                                                        }
+                                                    ],
+                                                    "description": "Hard drive free memory in percentage"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "MonitoringDashboardPage",
+                                        "pageTitle": "CPUs",
+                                        "enabled": true,
+                                        "path": "cpus",
+                                        "projectPath": "pages/tap-device-page/monitoring-page/supervisor-dashboard/cpus",
+                                        "profileName": "supervisor",
+                                        "moduleName": "SupervisorCPUsModule",
+                                        "targetConnectRequired": false,
+                                        "header": false,
+                                        "footer": false,
+                                        "variables": [
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 6,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "cpuCount"
+                                                }
+                                            },
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 11,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "cpuUsagePercentage"
+                                                }
+                                            }
+                                        ],
+                                        "content": {
+                                            "type": "GridLayout",
+                                            "cols": 2,
+                                            "elements": [
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "information-circle"
+                                                    },
+                                                    "title": "CPU count",
+                                                    "content": [
+                                                        {
+                                                            "editable": false,
+                                                            "type": "VariableText",
+                                                            "variable": "cpuCount",
+                                                            "valueFontSize": "1.2em",
+                                                            "valueFormatting": ""
+                                                        }
+                                                    ],
+                                                    "description": ""
+                                                },
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "analytics"
+                                                    },
+                                                    "title": "GPU usage over time",
+                                                    "content": [
+                                                        {
+                                                            "type": "VariableChart",
+                                                            "variable": "cpuUsagePercentage",
+                                                            "label": "cpu usage percentage",
+                                                            "valueFormatting": "",
+                                                            "options": {
+                                                                "xaxislabel": "cpu usage percentage",
+                                                                "[showLegend]": false
+                                                            }
+                                                        }
+                                                    ],
+                                                    "description": "CPU usage in percent over time"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "MonitoringDashboardPage",
+                                        "pageTitle": "Control",
+                                        "enabled": true,
+                                        "path": "control",
+                                        "projectPath": "pages/tap-device-page/monitoring-page/supervisor-dashboard/control",
+                                        "profileName": "supervisor",
+                                        "moduleName": "SupervisorControlModule",
+                                        "targetConnectRequired": false,
+                                        "header": false,
+                                        "footer": false,
+                                        "variables": [
+                                            {
+                                                "domain": "TARGET",
+                                                "address": "0x0",
+                                                "id": 13,
+                                                "length": 1,
+                                                "dataType": "UINT16",
+                                                "meta": {
+                                                    "name": "screenBrightness",
+                                                    "unit": "%"
+                                                }
+                                            }
+                                        ],
+                                        "content": {
+                                            "type": "GridLayout",
+                                            "cols": 2,
+                                            "elements": [
+                                                {
+                                                    "type": "CardLayout",
+                                                    "header": {
+                                                        "color": "secondary",
+                                                        "icon": "sunny"
+                                                    },
+                                                    "title": "Screen brightness",
+                                                    "content": [
+                                                        {
+                                                            "editable": true,
+                                                            "type": "VariableRange",
+                                                            "variable": "screenBrightness",
+                                                            "options": {
+                                                                "snaps": true,
+                                                                "min": 0,
+                                                                "max": 100,
+                                                                "step": 1,
+                                                                "pin": true
+                                                            }
+                                                        }
+                                                    ],
+                                                    "description": ""
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "content": {
+                                    "type": "TabLayout",
+                                    "tabs": [
+                                        {
+                                            "label": "Memory",
+                                            "path": "memory"
+                                        },
+                                        {
+                                            "label": "CPUs",
+                                            "path": "cpus"
+                                        },
+                                        {
+                                            "label": "Control",
+                                            "path": "control"
+                                        }
+                                    ]
+                                },
+                                "defaultPage": "memory"
+                            }
+                        ]
+                    }
+                },
+                "pageTitle": "Device",
+                "path": "device",
+                "projectPath": "pages/tap-device-page",
+                "type": "TapDevicePage",
+                "defaultPage": "monitoring"
+            },
+            "AboutPage": {
+                "type": "AboutPage",
+                "enabled": true,
+                "projectPath": "pages/about",
+                "items": [
+                    {
+                        "title": "Version",
+                        "value": "{{ environment.version }}"
+                    }
+                ],
+                "pageTitle": "About",
+                "path": "about",
+                "showAppVersion": "No",
+                "developerName": "",
+                "appDescription": ""
+            },
+            "TapConnectionPage": {
+                "type": "TapConnectionPage",
+                "enabled": true,
+                "pageTitle": "Connection",
+                "path": "connect",
+                "projectPath": "pages/tap-connect",
+                "protocols": {
+                    "ble": {
+                        "enabled": true
+                    },
+                    "nfc": {
+                        "enabled": true,
+                        "energyHarvesting": false
+                    },
+                    "socket": {
+                        "enabled": true,
+                        "rememberLastDevices": true
+                    },
+                    "mqtt": {
+                        "enabled": true,
+                        "rememberLastDevices": true
+                    }
+                }
+            },
+            "NotFoundPage": {
+                "type": "NotFoundPage",
+                "enabled": true,
+                "pageTitle": "Not found",
+                "path": "**",
+                "projectPath": "pages/not-found"
+            }
+        },
+        "logo": {
+            "image": ""
+        },
+        "splashScreen": {
+            "image": ""
+        },
+        "theme": {
+            "colors": [
+                {
+                    "name": "primary",
+                    "value": "0x3880ff",
+                    "contrast": "0xffffff",
+                    "shade": "0xffffff",
+                    "tint": "0x4c8dff"
+                },
+                {
+                    "name": "secondary",
+                    "value": "0x5290ff",
+                    "contrast": "0xffffff",
+                    "shade": "0xffffff",
+                    "tint": "0x639bff"
+                },
+                {
+                    "name": "tertiary",
+                    "value": "0xff5338",
+                    "contrast": "0xffffff",
+                    "shade": "0xffffff",
+                    "tint": "0xff644c"
+                },
+                {
+                    "name": "success",
+                    "value": "0x10dc60",
+                    "contrast": "0xffffff",
+                    "shade": "0xffffff",
+                    "tint": "0x28e070"
+                },
+                {
+                    "name": "warning",
+                    "value": "0xffce00",
+                    "contrast": "0xffffff",
+                    "shade": "0xffffff",
+                    "tint": "0xffd31a"
+                },
+                {
+                    "name": "danger",
+                    "value": "0xf04141",
+                    "contrast": "0xffffff",
+                    "shade": "0xffffff",
+                    "tint": "0xf25454"
+                },
+                {
+                    "name": "dark",
+                    "value": "0x222428",
+                    "contrast": "0xffffff",
+                    "shade": "0xffffff",
+                    "tint": "0x383a3e"
+                },
+                {
+                    "name": "medium",
+                    "value": "0x989aa2",
+                    "contrast": "0xffffff",
+                    "shade": "0xffffff",
+                    "tint": "0xa2a4ab"
+                },
+                {
+                    "name": "light",
+                    "value": "0xf4f5f8",
+                    "contrast": "0xffffff",
+                    "shade": "0xffffff",
+                    "tint": "0xf5f6f9"
+                },
+                {
+                    "name": "monitoring-background",
+                    "value": "0xeeeeee",
+                    "contrast": "0xffffff",
+                    "shade": "0xffffff",
+                    "tint": "0xf0f0f0"
+                }
+            ]
+        },
+        "defaultPage": "/connect"
+    }
+}

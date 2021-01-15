@@ -1,0 +1,134 @@
+﻿<?xml version="1.0"?>
+<IOTizeConfiguration Version="2.1.0" Lock="24">
+<GUI_Environment StoreVarInfo="false" UseInternalJVM="false" Locked="false" Autoincrement="false" AutoSyncTime="true" DocVerboseLevel="5" DocLogVerboseLevel="3" DocLogFileName="" AdminPWD="admin" SmartPhoneStoragePath="" />
+<GUI_XAppConfig useServer="yes">
+<GUI_app path="" version="0.0.1" cloudProjectId="modbus-slave-demo-e2rln" />
+<GUI_layout col="2" mode="One page per bundle" />
+<GUI_logo image="" />
+<GUI_splashScreen image="" />
+<GUI_appTheme primary="3703039" secondary="5411071" tertiary="16732984" />
+<GUI_hostProtocols>
+<GUI_nfc enabled="true" energyHarvesting="false" />
+<GUI_ble enabled="true" />
+<GUI_socket enabled="true" rememberLastDevices="true" />
+<GUI_mqtt enabled="true" rememberLastDevices="true" />
+</GUI_hostProtocols>
+<GUI_pages>
+<GUI_TapInfoPage enabled="true" pageTitle="Device info">
+<GUI_infosn enabled="true" />
+<GUI_infosn />
+<GUI_infofwver enabled="true" />
+<GUI_infofwver />
+<GUI_infocfgver enabled="true" />
+<GUI_infocfgver />
+<GUI_infoappname enabled="true" />
+<GUI_infoappname />
+<items key="serialNumber" />
+<items key="tapFirmwareVersion" />
+<items key="configVersion" />
+<items key="appName" />
+</GUI_TapInfoPage>
+<GUI_AboutPage enabled="true" pageTitle="About" showAppVersion="No" developerName="" appDescription="" />
+<GUI_TargetProtocolConfPage enabled="true" pageTitle="Target settings" />
+<GUI_TapSupervisionPage enabled="false" pageTitle="Supervision" />
+<GUI_TapConnectivitySettingsPage enabled="true" pageTitle="Connectivity settings" />
+</GUI_pages>
+</GUI_XAppConfig>
+<IOTizeApp Name="Modbus Slave Demo" DevIoTizeSN="IoTize000000000000" InterfaceLock="24" Scram_Hash_It="5000" GUI_Path="$4/com.mycompany.appgagi" GUI_WebSpePath="" Path="$6/IoTize000000000000/IoTize000000000000.cloud" GUI_TargetType="0" TargetProtocol="Modbus" GUI_S3Pmode="1" S3Pmode="1" S3PDelay="1" GUI_Modbus_GenerateAddr="no" TargetProtocolConfDataLen="8" TargetProtocolConfData="0001000a01002580" WebLink="https://www.iotize.com" AAR="com.mycompany.appgagi" HostProtocol="FFFF" Firmware="1.0.0" Config="1.0.0" NFCPairingMandatory="No" BLEPairingRequest="0" NFCInterruptionLock="0" NFCLogin="0" LowPowerLevel="0" LowPowerHostTimeout="30" JVM_Custom_Code="">
+<USB_Aliases />
+<LoRa_Info LoRaMode="0" />
+<WIFI_Info Network="P2P" ModuleSSID="" Module_AP_SSID="sfr-49e5" Module_AP_WEPKey="" ModuleWEPKey="" Cloud_Publish_Topic="" Cloud_Subscribe_Topic="" MQTTRelay_URL="user.cloud.iotize.com" MQTTRelay_Client_ID="" MQTTRelay_Broker_Login="" MQTTRelay_Passwd="" MQTTRelay_Service="1883" Broker_Certificate="" Wifi_SSID_Hidden="0" Wifi_WEPKey_Hidden="1" />
+<GUI_Reader Name="" />
+<GUI_ConnectionMode Value="3" />
+<GUI_CryptoMode Value="100" />
+<GUI_MQTT_Info>
+<GUI_MQTTCloudEnable Value="1" />
+<GUI_DevMQTTHostName Name="user.cloud.iotize.com" />
+<GUI_DevMQTTServiceName Name="1883" />
+<GUI_DevMQTT_UID Name="%%UID%%" />
+<GUI_DevMQTT_ClientID Name="%%SN%%" />
+<GUI_DevMQTT_Certificate Name="" />
+<GUI_DevMQTT_PrivateKey Name="" />
+<GUI_DevMQTT_Login Name="%%SN%%" />
+<GUI_DevMQTT_Password Name="%%UID%%" />
+<GUI_DevMQTT_BrokerCertificate Name="" />
+<GUI_DevMQTTSelection Value="true" />
+<GUI_DevMQTTTopicAnswer Name="" />
+<GUI_DevMQTTTopicPrefix Name="" />
+<GUI_DevMQTTIBMAPIKey Name="" />
+<GUI_DevMQTTIBMAPIToken Name="" />
+</GUI_MQTT_Info>
+<GUI_DevMQTTHostName Name="user.cloud.iotize.com" />
+<GUI_DevMQTTSelection Value="true" />
+<GUI_DevMQTTServiceName Name="1883" />
+<GUI_DevMQTT_UID Name="%%UID%%" />
+<GUI_DevSocketHostName Name="192.168.4.1" />
+<GUI_DevSocketServiceName Name="2000" />
+<GUI_DevBLEDeviceName Name="&quot;TestTapUsbModbus_0100C ( 70:b3:d5:9c:f0:0d )&quot;" />
+<GUI_DevUARTCOM Port="COM1" />
+<GUI_DevNetkey Name="testnetkey" />
+<GUI_ElfFile PathName="" Description="" />
+<GUI_SVDFile PathName="" />
+<GUI_AppDevServer port="4210" />
+<GUI_HTML Generate="yes" Prefix="HTML_TEST" Home="IoTize000000000000.html" />
+<GUI_CSSAuto Auto="yes" />
+<GUI_CSSFile PathName="" />
+<GUI_htmlHideLogin Hide="no" />
+<GUI_htmlDigitsFloat Value="3" />
+<CloudServices CloudEnable="1" CloudSendConf="Yes" CloudMqttPeriod="0" CloudUserId="0">
+<CloudHostName Name="user.cloud.iotize.com" />
+<CloudServiceName Name="1883" />
+<CloudMQTT_UID Name="" />
+<ProductKey_UID Name="" />
+<CloudMQTT_USERNAME Name="{SerialNumber}" />
+<IBMOrgID Name="" />
+<IBMDeviceType Name="" />
+<IBMDeviceID Name="" />
+<IBMDeviceToken Name="" />
+<IBMRootCertificate />
+<AWSCustomEndpoint Name="" />
+<AWSThingName Name="" />
+<DeviceCertificate />
+<DevicePrivateKey />
+<AWSRootCertificate />
+</CloudServices>
+</IOTizeApp>
+<IOTizeProfile GroupId="0" Id="0" Name="anonymous" LifeTime="300" Pwd="" GUI_Description="Guest without login/password. This profile is predefined in IoTize." GUI_BackColor="662314" GUI_ManagedByApp="Yes" GUI_AppPageTitle="" GUI_HTMLHome="" />
+<IOTizeProfile GroupId="65535" Id="65535" Name="admin" LifeTime="300" Pwd="0155AFFC023AFF6882F56A4E0D9C5466" Scram_Pwd="F19305E204DE9A184F165DF4E94CDD03639A531E0EDED1662324F5EC9BACD215CE90DEF2" Scram_User_Salt="3465600754" GUI_Description="Administrator (admin) login. This profile is predefined in IoTize, with default password admin" GUI_BackColor="736057" GUI_ManagedByApp="Yes" GUI_AppPageTitle="" GUI_HTMLHome="" />
+<IOTizeProfile GroupId="65534" Id="65534" Name="supervisor" LifeTime="300" Pwd="99C243D5F82EB712C281D5FFE7D12097" Scram_Pwd="4417EC1A647AE1FBEA8DCFB42103694BBFB6A89EE10300C34F1AC7C7272890751DB80CB7" Scram_User_Salt="498601143" GUI_Description="The supervisor is allowed to modify the login/password of the users, with default password supervisor" GUI_BackColor="3026478" GUI_ManagedByApp="Yes" GUI_AppPageTitle="" GUI_HTMLHome="" />
+<IOTizeBundle Id="1" GUI_Name="Memory" GUI_Description="" DataLogPeriod="0x00000000" GUI_MonitoringPeriod="500">
+<IOTizeVariable Id="2" GUI_Name="freeMemoryMB" GUI_PhysicalAddress="0x00000002" Address="0x00000002" Unit="2" UnitType="unsigned integer" Quantity="1" GUI_Submit="No" GUI_Display="Yes" GUI_Alias="Memory free" GUI_DispUnit="MB">
+<XAppRender GUI_listChoices="" GUI_icon="" GUI_textOff="Off" GUI_textOn="On" GUI_max="100" GUI_min="0" GUI_step="1" GUI_pin="Yes" GUI_valueFontSize="1.5em" GUI_showInCard="Yes" GUI_card.header.icon="information-circle" GUI_card.header.colorName="secondary" GUI_card.description="" GUI_renderType="Text" GUI_content="" GUI_valueFormatting="" GUI_indexTemplate="" GUI_UnitType="unsigned integer" />
+</IOTizeVariable>
+<IOTizeVariable Id="4" GUI_Name="totalMemoryMB" GUI_PhysicalAddress="0x00000004" Address="0x00000004" Unit="2" UnitType="unsigned integer" Quantity="1" GUI_Submit="No" GUI_Display="Yes" GUI_Alias="Total memory" GUI_DispUnit="MB">
+<XAppRender GUI_listChoices="" GUI_icon="" GUI_textOff="Off" GUI_textOn="On" GUI_max="100" GUI_min="0" GUI_step="1" GUI_pin="Yes" GUI_valueFontSize="1.5em" GUI_showInCard="Yes" GUI_card.header.icon="information-circle" GUI_card.header.colorName="secondary" GUI_card.description="" GUI_renderType="Text" GUI_content="" GUI_valueFormatting="" GUI_indexTemplate="" GUI_UnitType="unsigned integer" />
+</IOTizeVariable>
+<IOTizeVariable Id="9" GUI_Name="freeMemoryPercentage" GUI_PhysicalAddress="0x00000009" Address="0x00000009" Unit="2" UnitType="unsigned integer" Quantity="1" GUI_Submit="No" GUI_Display="Yes" GUI_Alias="Free memory">
+<XAppRender GUI_listChoices="" GUI_icon="" GUI_textOff="Off" GUI_textOn="On" GUI_max="100" GUI_min="0" GUI_step="1" GUI_pin="Yes" GUI_valueFontSize="" GUI_showInCard="Yes" GUI_card.header.icon="analytics" GUI_card.header.colorName="secondary" GUI_card.description="Hard drive free memory in percentage" GUI_renderType="Gauge" GUI_content="" GUI_valueFormatting="" GUI_indexTemplate="" GUI_UnitType="unsigned integer" />
+</IOTizeVariable>
+<IOTizeAccessControl>
+<IOTizeACL ProfileName="anonymous" Rights="read,write" />
+</IOTizeAccessControl>
+</IOTizeBundle>
+<IOTizeBundle Id="2" GUI_Name="CPUs" GUI_Description="" DataLogPeriod="0x00000000" GUI_MonitoringPeriod="500">
+<IOTizeVariable Id="6" GUI_Name="cpuCount" GUI_PhysicalAddress="0x00000006" Address="0x00000006" Unit="2" UnitType="unsigned integer" Quantity="1" GUI_Submit="No" GUI_Display="Yes" GUI_Alias="CPU count">
+<XAppRender GUI_listChoices="" GUI_icon="" GUI_textOff="Off" GUI_textOn="On" GUI_max="100" GUI_min="0" GUI_step="1" GUI_pin="Yes" GUI_valueFontSize="1.2em" GUI_showInCard="Yes" GUI_card.header.icon="information-circle" GUI_card.header.colorName="secondary" GUI_card.description="" GUI_renderType="Text" GUI_content="" GUI_valueFormatting="" GUI_indexTemplate="" GUI_UnitType="unsigned integer" />
+</IOTizeVariable>
+<IOTizeVariable Id="11" GUI_Name="cpuUsagePercentage" GUI_PhysicalAddress="0x0000000B" Address="0x0000000B" Unit="2" UnitType="unsigned integer" Quantity="1" GUI_Submit="No" GUI_Display="Yes" GUI_Alias="GPU usage over time">
+<XAppRender GUI_listChoices="" GUI_icon="" GUI_textOff="Off" GUI_textOn="On" GUI_max="100" GUI_min="0" GUI_step="1" GUI_pin="Yes" GUI_valueFontSize="" GUI_showInCard="Yes" GUI_card.header.icon="analytics" GUI_card.header.colorName="secondary" GUI_card.description="CPU usage in percent over time" GUI_renderType="Chart" GUI_content="" GUI_valueFormatting="" GUI_indexTemplate="" GUI_UnitType="unsigned integer" />
+</IOTizeVariable>
+<IOTizeAccessControl>
+<IOTizeACL ProfileName="anonymous" Rights="read,write" />
+</IOTizeAccessControl>
+</IOTizeBundle>
+<IOTizeBundle Id="3" GUI_Name="Control" GUI_Description="" DataLogPeriod="0x00000000" GUI_MonitoringPeriod="500">
+<IOTizeVariable Id="13" GUI_Name="screenBrightness" GUI_PhysicalAddress="0x00000100" Address="0x00000100" Unit="2" UnitType="unsigned integer" Quantity="1" GUI_Submit="Yes" GUI_Display="Yes" GUI_Alias="Screen brightness" GUI_DispUnit="%">
+<XAppRender GUI_listChoices="" GUI_icon="" GUI_textOff="Off" GUI_textOn="On" GUI_max="100" GUI_min="0" GUI_step="1" GUI_pin="Yes" GUI_valueFontSize="" GUI_showInCard="Yes" GUI_card.header.icon="sunny" GUI_card.header.colorName="secondary" GUI_card.description="" GUI_renderType="Slider" GUI_content="" GUI_valueFormatting="" GUI_indexTemplate="" GUI_UnitType="unsigned integer" />
+</IOTizeVariable>
+<IOTizeAccessControl>
+<IOTizeACL ProfileName="anonymous" Rights="read,write" />
+</IOTizeAccessControl>
+<Feature FeatureObjId="1024" FeatureResId="101" />
+<Feature FeatureObjId="1024" FeatureResId="102" />
+</IOTizeBundle>
+</IOTizeConfiguration>

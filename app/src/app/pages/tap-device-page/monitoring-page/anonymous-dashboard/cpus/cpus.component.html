@@ -1,0 +1,50 @@
+<ion-content *ngIf="dataManager">
+  <app-navigation-progress-bar></app-navigation-progress-bar>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-item lines="full" class="card-header" color="secondary">
+            <ion-icon name="information-circle" slot="start"></ion-icon>
+            <ion-label>CPU count</ion-label>
+          </ion-item>
+
+          <ion-card-content>
+            <div style="margin: auto;">
+              <monitoring-variable-value
+                [lines]="'none'"
+                [variable]="variables['cpuCount']"
+                [inputOptions]=""
+                [valueStyle]="{'font-size': '1.2em'}"
+                slot="end"
+              >
+              </monitoring-variable-value>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <ion-col>
+        <ion-card>
+          <ion-item lines="full" class="card-header" color="secondary">
+            <ion-icon name="analytics" slot="start"></ion-icon>
+            <ion-label>GPU usage over time</ion-label>
+          </ion-item>
+
+          <ion-card-content>
+            <tap-variable-chart
+              [variable]="variables['cpuUsagePercentage']"
+              xaxislabel="cpu usage percentage"
+              [showLegend]="false"
+            ></tap-variable-chart>
+          </ion-card-content>
+
+          <ion-card-content>
+            CPU usage in percent over time
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

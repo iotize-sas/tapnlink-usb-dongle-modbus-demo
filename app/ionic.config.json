@@ -1,0 +1,7 @@
+{
+  "name": "Modbus Slave Demo",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

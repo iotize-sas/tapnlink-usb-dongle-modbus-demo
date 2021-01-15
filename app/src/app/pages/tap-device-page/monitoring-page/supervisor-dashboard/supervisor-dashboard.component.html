@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Supervisor dashboard
+    </ion-title>
+    <ion-buttons slot="end" *ngIf="dataManager">
+      <ion-button
+        (click)="startMonitor()"
+        *ngIf="!isMonitoringRunning"
+        [disabled]="!tapService.protocolMeta"
+      >
+        <ion-icon name="play"></ion-icon>
+      </ion-button>
+      <ion-button
+        (click)="monitoringService.stop()"
+        *ngIf="isMonitoringRunning"
+      >
+        <ion-icon name="pause"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="dataManager">
+  <app-navigation-progress-bar></app-navigation-progress-bar>
+
+  <ion-tabs>
+    <ion-tab-bar slot="top">
+      <ion-tab-button tab="memory">
+        <ion-label>Memory</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="cpus">
+        <ion-label>CPUs</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="control">
+        <ion-label>Control</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
+
+<ion-footer>
+  <ion-item
+    *ngIf="isTapConnected && !isMonitoringRunning"
+    lines="none"
+    [color]="'danger'"
+  >
+    <ion-icon name="alert"></ion-icon>
+    <ion-label class="ion-text-wrap">Monitoring is paused</ion-label>
+    <ion-buttons slot="end">
+      <ion-button (click)="startMonitor()">
+        <ion-icon name="play"></ion-icon> Start
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <ion-item
+    *ngIf="tapService.protocolMeta && waitForSubmit"
+    lines="none"
+    [color]="'danger'"
+  >
+    <ion-icon name="alert"></ion-icon>
+    <ion-label class="ion-text-wrap"
+      >Device is not connected. Changes will be sent when device is
+      connected.</ion-label
+    >
+  </ion-item>
+  <ion-item *ngIf="!tapService.protocolMeta" lines="none" [color]="'danger'">
+    <ion-icon name="alert"></ion-icon>
+    <ion-label class="ion-text-wrap">No device selected</ion-label>
+    <ion-buttons slot="end">
+      <ion-button (click)="changeDevice()">
+        <ion-icon name="wifi"></ion-icon> Select
+      </ion-button>
+    </ion-buttons>
+  </ion-item>
+</ion-footer>
