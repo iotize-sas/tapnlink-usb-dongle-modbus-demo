@@ -32,7 +32,7 @@ npm start
 5. Install client application on your phone:
    
    1. **Android**: [build/app-debug.apk](build/app-debug.apk)
-   2. **iOS**: not available yet
+   2. **iOS**: build from the ionic sources in the app folder. See [Ionic documentation](https://ionicframework.com/docs/developing/ios)
 
 6. Run the mobile application, connect to the `TapNLink` and start monitoring hard drive usage, CPU usage and control screen luminosity with your phone.
 
